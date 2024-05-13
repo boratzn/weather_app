@@ -24,7 +24,8 @@ class GeoLocatorService {
     List<Placemark> placemarks =
         await placemarkFromCoordinates(position.latitude, position.longitude);
 
+    if (placemarks.isEmpty) return "Istanbul";
     Placemark place = placemarks[0];
-    return place.subAdministrativeArea ?? "London";
+    return place.subAdministrativeArea ?? "Istanbul";
   }
 }

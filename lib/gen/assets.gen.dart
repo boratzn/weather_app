@@ -73,6 +73,9 @@ class $AssetsImagesGen {
   AssetGenImage get humidity =>
       const AssetGenImage('assets/images/humidity.png');
 
+  /// File path: assets/images/night.gif
+  AssetGenImage get night => const AssetGenImage('assets/images/night.gif');
+
   /// File path: assets/images/rainy.png
   AssetGenImage get rainy => const AssetGenImage('assets/images/rainy.png');
 
@@ -101,6 +104,7 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [
         cloud,
         humidity,
+        night,
         rainy,
         skyNight,
         sun,

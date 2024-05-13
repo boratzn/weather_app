@@ -10,7 +10,7 @@ class WeatherApiService {
   Future<Weather> getWeather(String location) async {
     var response;
     try {
-      var url = "$baseUrl$location&days=10&aqi=no&alerts=no";
+      var url = "$baseUrl$location&days=3&aqi=no&alerts=no";
       response = await dio.get(url);
     } catch (e) {}
     Location loc =

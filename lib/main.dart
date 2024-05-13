@@ -6,7 +6,6 @@ import 'package:weather_app/gen/assets.gen.dart';
 import 'package:weather_app/screens/home_page.dart';
 import 'package:weather_app/services/geolocator_service.dart';
 import 'package:weather_app/services/weather_api.dart';
-import 'package:weather_app/utility/utility.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
@@ -55,15 +54,6 @@ class MainApp extends StatelessWidget {
               );
             }
           },
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Utility.testAlert(context);
-          },
-          child: const Icon(
-            Icons.search,
-            size: 30,
-          ),
         ),
       ),
     );

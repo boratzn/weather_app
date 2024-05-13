@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage(Assets.images.skyNight.path),
+            image: AssetImage(Assets.images.night.path),
           ),
         ),
         child: BlocBuilder<WeatherBloc, WeatherState>(
@@ -198,6 +198,15 @@ class _HomePageState extends State<HomePage> {
               child: Text("Hava Durumu Yüklenirken Hata Oluştu!!"),
             );
           },
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Utility.testAlert(context);
+        },
+        child: const Icon(
+          Icons.search,
+          size: 30,
         ),
       ),
     );
