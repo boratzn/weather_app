@@ -522,7 +522,7 @@ class Hour {
         visMiles: json["vis_miles"],
         gustMph: json["gust_mph"]?.toDouble(),
         gustKph: json["gust_kph"]?.toDouble(),
-        uv: json["uv"],
+        uv: json["uv"]?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {

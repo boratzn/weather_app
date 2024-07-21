@@ -28,32 +28,20 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: FutureBuilder(
-          future: GeoLocatorService().getLocation(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (snapshot.hasError) {
-              return Center(child: Text('Error: ${snapshot.error}'));
-            } else {
-              // Konum alındıktan sonra hava durumu bilgisini al
-              Size size = MediaQuery.of(context).size;
-              return Container(
-                width: size.width,
-                height: size.height,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage(Assets.images.skyNight.path),
-                )),
-                child: HomePage(
-                  location: snapshot.data ?? "London",
-                ),
-              );
-            }
-          },
+        body: Container(
+          width: size.width,
+          height: size.height,
+          decoration: BoxDecoration(
+              image: DecorationImage(
+            image: AssetImage(Assets.images.skyNight.path),
+          )),
+          child: const HomePage(
+            location: "İstanbul",
+          ),
         ),
       ),
     );
