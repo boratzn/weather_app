@@ -45,6 +45,7 @@ class Utility {
 
   static void testAlert(BuildContext context) {
     var alert = AlertDialog(
+      backgroundColor: Colors.indigo,
       title: const Text("Şehir İsmi Girin"),
       content: Column(
         mainAxisSize: MainAxisSize.min,

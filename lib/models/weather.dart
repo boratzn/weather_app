@@ -375,9 +375,9 @@ class Day {
         maxwindKph: json["maxwind_kph"]?.toDouble(),
         totalprecipMm: json["totalprecip_mm"]?.toDouble(),
         totalprecipIn: json["totalprecip_in"]?.toDouble(),
-        totalsnowCm: json["totalsnow_cm"],
+        totalsnowCm: json["totalsnow_cm"]?.toDouble(),
         avgvisKm: json["avgvis_km"]?.toDouble(),
-        avgvisMiles: json["avgvis_miles"],
+        avgvisMiles: json["avgvis_miles"]?.toDouble(),
         avghumidity: json["avghumidity"],
         dailyWillItRain: json["daily_will_it_rain"],
         dailyChanceOfRain: json["daily_chance_of_rain"],
@@ -386,7 +386,7 @@ class Day {
         condition: json["condition"] == null
             ? null
             : Condition.fromJson(json["condition"]),
-        uv: json["uv"],
+        uv: json["uv"]?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {
@@ -522,7 +522,7 @@ class Hour {
         visMiles: json["vis_miles"],
         gustMph: json["gust_mph"]?.toDouble(),
         gustKph: json["gust_kph"]?.toDouble(),
-        uv: json["uv"],
+        uv: json["uv"]?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {

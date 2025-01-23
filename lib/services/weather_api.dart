@@ -2,15 +2,16 @@ import 'package:dio/dio.dart';
 import 'package:weather_app/models/weather.dart';
 
 class WeatherApiService {
+  String apiKey = "eb385c1792a94adc8a6121459240304";
   String baseUrl =
-      "https://api.weatherapi.com/v1/forecast.json?key=eb385c1792a94adc8a6121459240304&q=";
+      "https://api.weatherapi.com/v1/forecast.json?q=";
 
   final dio = Dio();
 
   Future<Weather> getWeather(String location) async {
     var response;
     try {
-      var url = "$baseUrl$location&days=3&aqi=no&alerts=no";
+      var url = "$baseUrl$location&days=5&aqi=no&alerts=no&key=$apiKey";
       response = await dio.get(url);
     } catch (e) {}
     Location loc =
