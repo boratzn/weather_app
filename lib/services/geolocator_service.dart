@@ -9,7 +9,7 @@ class GeoLocatorService {
       // Konum izni yoksa, izin iste
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        return "";
+        return "Istanbul";
       }
     }
 
