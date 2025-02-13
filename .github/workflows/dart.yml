@@ -1,4 +1,4 @@
-name: Dart
+name: Flutter CI
 
 on:
   push:
@@ -7,27 +7,23 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Dart SDK'yı kur (Eğer saf Dart projesiyse)
-      - uses: dart-lang/setup-dart@v1
-
-      # Flutter SDK'yı kur
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.x' # Kendi Flutter versiyonuna göre değiştir
+          flutter-version: '3.29.0' # Kendi projenin Flutter versiyonuna göre güncelle
 
       - name: Install dependencies
         run: flutter pub get
 
       - name: Analyze project source
-        run: dart analyze
+        run: flutter analyze
 
       - name: Run tests
         run: flutter test
