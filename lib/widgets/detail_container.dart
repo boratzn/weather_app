@@ -22,7 +22,7 @@ class DetailContainer extends StatelessWidget {
       width: size.width / 2 - 30,
       height: size.height * 0.13,
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(.1),
+        color: Colors.white.withValues(alpha:.1),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(
