@@ -15,7 +15,8 @@ class GeoLocatorService {
 
     // Mevcut konumu al
     Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
+      locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
+    );
     String area = await getLocationInfo(position);
     return area;
   }

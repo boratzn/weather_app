@@ -72,7 +72,7 @@ class Utility {
                 Navigator.pop(context);
                 controller.text = "";
               },
-              child: Text("Ara"))
+              child: const Text("Ara"))
         ],
       ),
     );

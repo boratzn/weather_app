@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MyAppBar extends StatelessWidget {
   const MyAppBar({super.key, required this.location});

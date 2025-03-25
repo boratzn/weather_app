@@ -24,7 +24,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
     var selectedDay = widget.weather.forecast!.forecastday![selectedIdx];
     TextStyle style = const TextStyle(fontSize: 20, color: Colors.white);
     TextStyle subStyle =
-        TextStyle(fontSize: 12, color: Colors.white.withOpacity(.5));
+        TextStyle(fontSize: 12, color: Colors.white.withValues(alpha:.5));
 
     return Scaffold(
       backgroundColor: constants.primaryColor,
@@ -79,7 +79,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                                   borderRadius: BorderRadius.circular(25),
                                   border: Border.all(color: Colors.white),
                                   color: selectedIdx == index
-                                      ? Colors.white.withOpacity(.3)
+                                      ? Colors.white.withValues(alpha:.3)
                                       : null,
                                 ),
                                 child: Padding(
@@ -127,7 +127,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                               width: size.width / 2 - 30,
                               height: size.height * 0.13,
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(.2),
+                                color: Colors.white.withValues(alpha:.2),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Center(
@@ -152,7 +152,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                               width: size.width / 2 - 30,
                               height: size.height * 0.13,
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(.2),
+                                color: Colors.white.withValues(alpha:.2),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Center(
@@ -185,7 +185,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                               width: size.width / 2 - 30,
                               height: size.height * 0.13,
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(.2),
+                                color: Colors.white.withValues(alpha:.2),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Center(
@@ -210,7 +210,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                               width: size.width / 2 - 30,
                               height: size.height * 0.13,
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(.2),
+                                color: Colors.white.withValues(alpha:.2),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Center(
@@ -243,7 +243,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                               width: size.width / 2 - 30,
                               height: size.height * 0.13,
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(.2),
+                                color: Colors.white.withValues(alpha:.2),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Center(
@@ -268,7 +268,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                               width: size.width / 2 - 30,
                               height: size.height * 0.13,
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(.2),
+                                color: Colors.white.withValues(alpha:.2),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Center(
@@ -301,7 +301,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                               width: size.width / 2 - 30,
                               height: size.height * 0.13,
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(.2),
+                                color: Colors.white.withValues(alpha:.2),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Center(
@@ -327,7 +327,7 @@ class _WeatherDetailPageState extends State<WeatherDetailPage> {
                               width: size.width / 2 - 30,
                               height: size.height * 0.13,
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(.2),
+                                color: Colors.white.withValues(alpha:.2),
                                 borderRadius: BorderRadius.circular(15),
                               ),
                               child: Center(

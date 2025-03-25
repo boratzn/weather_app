@@ -168,33 +168,33 @@ class Condition {
 }
 
 enum Status {
-  CLEAR,
-  CLOUDY,
-  LIGHT_DRIZZLE,
-  LIGHT_RAIN,
-  LIGHT_RAIN_SHOWER,
-  MIST,
-  MODERATE_RAIN,
-  OVERCAST,
-  PARTLY_CLOUDY,
-  PATCHY_RAIN_NEARBY,
-  SUNNY,
-  TEXT_PARTLY_CLOUDY
+  clear,
+  cloudy,
+  lightDrizzle,
+  lightRain,
+  lightRainShower,
+  mist,
+  moderateRain,
+  overcast,
+  partlyCloudy,
+  patchyRainNearby,
+  sunny,
+  textPartlyCloudy
 }
 
 final textValues = EnumValues({
-  "Clear ": Status.CLEAR,
-  "Cloudy ": Status.CLOUDY,
-  "Light drizzle": Status.LIGHT_DRIZZLE,
-  "Light rain": Status.LIGHT_RAIN,
-  "Light rain shower": Status.LIGHT_RAIN_SHOWER,
-  "Mist": Status.MIST,
-  "Moderate rain": Status.MODERATE_RAIN,
-  "Overcast ": Status.OVERCAST,
-  "Partly cloudy": Status.PARTLY_CLOUDY,
-  "Patchy rain nearby": Status.PATCHY_RAIN_NEARBY,
-  "Sunny": Status.SUNNY,
-  "Partly Cloudy ": Status.PARTLY_CLOUDY
+  "Clear ": Status.clear,
+  "Cloudy ": Status.cloudy,
+  "Light drizzle": Status.lightDrizzle,
+  "Light rain": Status.lightRain,
+  "Light rain shower": Status.lightRainShower,
+  "Mist": Status.mist,
+  "Moderate rain": Status.moderateRain,
+  "Overcast ": Status.overcast,
+  "Partly cloudy": Status.partlyCloudy,
+  "Patchy rain nearby": Status.patchyRainNearby,
+  "Sunny": Status.sunny,
+  "Partly Cloudy ": Status.partlyCloudy
 });
 
 enum WindDir { S, SE, SSE, SSW, SW, W, WSW }
@@ -311,12 +311,12 @@ class Astro {
       };
 }
 
-enum MoonPhase { NEW_MOON, WANING_CRESCENT, WAXING_CRESCENT }
+enum MoonPhase { newMoon, waningCrescent, waxingCrescent }
 
 final moonPhaseValues = EnumValues({
-  "New Moon": MoonPhase.NEW_MOON,
-  "Waning Crescent": MoonPhase.WANING_CRESCENT,
-  "Waxing Crescent": MoonPhase.WAXING_CRESCENT
+  "New Moon": MoonPhase.newMoon,
+  "Waning Crescent": MoonPhase.waningCrescent,
+  "Waxing Crescent": MoonPhase.waxingCrescent
 });
 
 class Day {

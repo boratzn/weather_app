@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class AnimatedListItem extends StatefulWidget {
   final Widget child;
 
-  AnimatedListItem({required this.child});
+  const AnimatedListItem({super.key, required this.child});
 
   @override
-  _AnimatedListItemState createState() => _AnimatedListItemState();
+  AnimatedListItemState createState() => AnimatedListItemState();
 }
 
-class _AnimatedListItemState extends State<AnimatedListItem>
+class AnimatedListItemState extends State<AnimatedListItem>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   Animation<double>? _animation;
@@ -19,7 +19,7 @@ class _AnimatedListItemState extends State<AnimatedListItem>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 2),
+      duration: const Duration(seconds: 2),
     );
     _animation = Tween<double>(begin: 0, end: 1).animate(
       CurvedAnimation(

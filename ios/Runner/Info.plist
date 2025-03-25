@@ -12,6 +12,16 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Hava durumu bilgilerini göstermek için konumunuza erişmek istiyoruz.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Hava durumu bilgilerini arka planda güncellemek için konumunuza erişmek istiyoruz.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Hava durumu bilgilerini arka planda güncellemek için konumunuza erişmek istiyoruz.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+    	<string>location</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>weather_app</string>
 	<key>CFBundlePackageType</key>

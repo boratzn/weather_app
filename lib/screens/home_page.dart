@@ -105,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                   padding: const EdgeInsets.all(15),
                                   decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(.1),
+                                      color: Colors.white.withValues(alpha: .1),
                                       borderRadius: BorderRadius.circular(15)),
                                   child: ListView.separated(
                                     separatorBuilder: (context, index) =>
