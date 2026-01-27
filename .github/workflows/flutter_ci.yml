@@ -1,0 +1,57 @@
+name: Flutter CI/CD (Signed App Bundle)
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+
+      - name: Install Dependencies
+        run: flutter pub get
+
+      # --- İMZALAMA HAZIRLIKLARI ---
+
+      # 1. Base64'ten Keystore dosyasını oluştur
+      - name: Decode Keystore
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 --decode > android/app/upload-keystore.jks
+
+      # 2. key.properties oluştur (Gradle bu dosyayı okuyup imzalayacak)
+      - name: Create key.properties
+        run: |
+          echo "storePassword=${{ secrets.ANDROID_STORE_PASSWORD }}" > android/key.properties
+          echo "keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}" >> android/key.properties
+          echo "keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}" >> android/key.properties
+          echo "storeFile=upload-keystore.jks" >> android/key.properties
+
+      # --- DERLEME İŞLEMİ (DEĞİŞEN KISIM) ---
+
+      # 3. İmzalı App Bundle (.aab) Oluştur
+      - name: Build Signed App Bundle
+        run: flutter build appbundle --release
+
+      # 4. Oluşan .aab dosyasını GitHub'a yükle
+      - name: Upload App Bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-bundle
+          path: build/app/outputs/bundle/release/app-release.aab
+          retention-days: 7 # Dosya GitHub'da 7 gün saklansın
