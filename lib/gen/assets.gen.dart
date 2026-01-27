@@ -1,3 +1,5 @@
+// dart format width=80
+
 /// GENERATED CODE - DO NOT MODIFY BY HAND
 /// *****************************************************
 ///  FlutterGen
@@ -5,10 +7,10 @@
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
-// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
+// ignore_for_file: deprecated_member_use,directives_ordering,implicit_dynamic_list_literal,unnecessary_import
 
 import 'package:flutter/widgets.dart';
-import 'package:lottie/lottie.dart';
+import 'package:lottie/lottie.dart' as _lottie;
 
 class $AssetsAnimationsGen {
   const $AssetsAnimationsGen();
@@ -45,26 +47,40 @@ class $AssetsAnimationsGen {
   LottieGenImage get rain =>
       const LottieGenImage('assets/animations/rain.json');
 
+  /// File path: assets/animations/snowy.json
+  LottieGenImage get snowy =>
+      const LottieGenImage('assets/animations/snowy.json');
+
   /// File path: assets/animations/sun-hot.json
   LottieGenImage get sunHot =>
       const LottieGenImage('assets/animations/sun-hot.json');
 
+  /// File path: assets/animations/thundery.json
+  LottieGenImage get thundery =>
+      const LottieGenImage('assets/animations/thundery.json');
+
   /// List of all assets
   List<LottieGenImage> get values => [
-        clearDay,
-        clear,
-        cloudy,
-        drizzle,
-        mist,
-        overcast,
-        partlyCloudyDay,
-        rain,
-        sunHot
-      ];
+    clearDay,
+    clear,
+    cloudy,
+    drizzle,
+    mist,
+    overcast,
+    partlyCloudyDay,
+    rain,
+    snowy,
+    sunHot,
+    thundery,
+  ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/app_icon.png
+  AssetGenImage get appIcon =>
+      const AssetGenImage('assets/images/app_icon.png');
 
   /// File path: assets/images/cloud.png
   AssetGenImage get cloud => const AssetGenImage('assets/images/cloud.png');
@@ -102,21 +118,22 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
-        cloud,
-        humidity,
-        night,
-        rainy,
-        skyNight,
-        sun,
-        sunrise,
-        sunset,
-        thermometer,
-        whirlwind
-      ];
+    appIcon,
+    cloud,
+    humidity,
+    night,
+    rainy,
+    skyNight,
+    sun,
+    sunrise,
+    sunset,
+    thermometer,
+    whirlwind,
+  ];
 }
 
 class Assets {
-  Assets._();
+  const Assets._();
 
   static const String package = 'weather_app';
 
@@ -125,11 +142,20 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName);
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+    this.animation,
+  });
 
   final String _assetName;
 
   static const String package = 'weather_app';
+
+  final Size? size;
+  final Set<String> flavors;
+  final AssetGenImageAnimation? animation;
 
   Image image({
     Key? key,
@@ -149,11 +175,11 @@ class AssetGenImage {
     ImageRepeat repeat = ImageRepeat.noRepeat,
     Rect? centerSlice,
     bool matchTextDirection = false,
-    bool gaplessPlayback = false,
+    bool gaplessPlayback = true,
     bool isAntiAlias = false,
     @Deprecated('Do not specify package for a generated library asset')
     String? package = package,
-    FilterQuality filterQuality = FilterQuality.low,
+    FilterQuality filterQuality = FilterQuality.medium,
     int? cacheWidth,
     int? cacheHeight,
   }) {
@@ -190,11 +216,7 @@ class AssetGenImage {
     @Deprecated('Do not specify package for a generated library asset')
     String? package = package,
   }) {
-    return AssetImage(
-      _assetName,
-      bundle: bundle,
-      package: package,
-    );
+    return AssetImage(_assetName, bundle: bundle, package: package);
   }
 
   String get path => _assetName;
@@ -202,26 +224,40 @@ class AssetGenImage {
   String get keyName => 'packages/weather_app/$_assetName';
 }
 
+class AssetGenImageAnimation {
+  const AssetGenImageAnimation({
+    required this.isAnimation,
+    required this.duration,
+    required this.frames,
+  });
+
+  final bool isAnimation;
+  final Duration duration;
+  final int frames;
+}
+
 class LottieGenImage {
-  const LottieGenImage(this._assetName);
+  const LottieGenImage(this._assetName, {this.flavors = const {}});
 
   final String _assetName;
+  final Set<String> flavors;
 
   static const String package = 'weather_app';
 
-  LottieBuilder lottie({
+  _lottie.LottieBuilder lottie({
     Animation<double>? controller,
     bool? animate,
-    FrameRate? frameRate,
+    _lottie.FrameRate? frameRate,
     bool? repeat,
     bool? reverse,
-    LottieDelegates? delegates,
-    LottieOptions? options,
-    void Function(LottieComposition)? onLoaded,
-    LottieImageProviderFactory? imageProviderFactory,
+    _lottie.LottieDelegates? delegates,
+    _lottie.LottieOptions? options,
+    void Function(_lottie.LottieComposition)? onLoaded,
+    _lottie.LottieImageProviderFactory? imageProviderFactory,
     Key? key,
     AssetBundle? bundle,
-    Widget Function(BuildContext, Widget, LottieComposition?)? frameBuilder,
+    Widget Function(BuildContext, Widget, _lottie.LottieComposition?)?
+    frameBuilder,
     ImageErrorWidgetBuilder? errorBuilder,
     double? width,
     double? height,
@@ -232,8 +268,11 @@ class LottieGenImage {
     bool? addRepaintBoundary,
     FilterQuality? filterQuality,
     void Function(String)? onWarning,
+    _lottie.LottieDecoder? decoder,
+    _lottie.RenderCache? renderCache,
+    bool? backgroundLoading,
   }) {
-    return Lottie.asset(
+    return _lottie.Lottie.asset(
       _assetName,
       controller: controller,
       animate: animate,
@@ -256,6 +295,9 @@ class LottieGenImage {
       addRepaintBoundary: addRepaintBoundary,
       filterQuality: filterQuality,
       onWarning: onWarning,
+      decoder: decoder,
+      renderCache: renderCache,
+      backgroundLoading: backgroundLoading,
     );
   }
 

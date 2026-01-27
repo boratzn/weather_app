@@ -8,15 +8,16 @@ import 'package:weather_app/services/geolocator_service.dart';
 import 'package:weather_app/services/weather_api.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent, // Status bar'ı şeffaf yapar
-  ));
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent, // Status bar'ı şeffaf yapar
+    ),
+  );
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => WeatherBloc(WeatherApiService()),
-        )
+        BlocProvider(create: (context) => WeatherBloc(WeatherApiService())),
       ],
       child: const MainApp(),
     ),
@@ -28,33 +29,64 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: FutureBuilder(
-          future: GeoLocatorService().getLocation(),
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (snapshot.hasError) {
-              return Center(child: Text('Error: ${snapshot.error}'));
-            } else {
-              // Konum alındıktan sonra hava durumu bilgisini al
-              Size size = MediaQuery.of(context).size;
-              return Container(
-                width: size.width,
-                height: size.height,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage(Assets.images.skyNight.path),
-                )),
-                child: HomePage(
-                  location: snapshot.data ?? "London",
-                ),
-              );
-            }
-          },
+      home: LocationWrapper(),
+    );
+  }
+}
+
+class LocationWrapper extends StatefulWidget {
+  const LocationWrapper({super.key});
+
+  @override
+  State<LocationWrapper> createState() => _LocationWrapperState();
+}
+
+class _LocationWrapperState extends State<LocationWrapper> {
+  String? location;
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _initLocation();
+  }
+
+  Future<void> _initLocation() async {
+    // Wait for the build to complete so context is valid for dialogs
+    await Future.delayed(Duration.zero);
+    if (!mounted) return;
+
+    String loc = await GeoLocatorService().getLocationWithContext(context);
+
+    if (mounted) {
+      setState(() {
+        location = loc;
+        isLoading = false;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      body: Container(
+        width: size.width,
+        height: size.height,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(Assets.images.skyNight.path),
+            fit: BoxFit.cover,
+          ),
         ),
+        child: isLoading
+            ? const Center(
+                child: CircularProgressIndicator(color: Colors.white),
+              )
+            : HomePage(location: location ?? "Istanbul"),
       ),
     );
   }

@@ -30,6 +30,7 @@ class AnimatedListItemState extends State<AnimatedListItem>
     _controller.forward();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return FadeTransition(
